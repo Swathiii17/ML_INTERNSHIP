@@ -7,5 +7,5 @@ https://drive.google.com/drive/folders/1e6tpsvvH5RBRAU5OpmcFEJDFyOLx_b38?usp=sha
 
 ### After downloading:
 Place the file in this folder:
-
+Brain_Tumor_Detection
 
