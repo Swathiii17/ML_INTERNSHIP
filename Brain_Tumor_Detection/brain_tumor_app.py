@@ -12,7 +12,7 @@ import numpy as np
 from PIL import Image
 
 # Load model
-model = tf.keras.models.load_model("brain_tumor_dataset.h5")
+model = tf.keras.models.load_model("Brain_Tumor_Detection/README.md/brain_tumor_dataset.h5")
 
 st.title("Image Classification App")
 
