@@ -3,7 +3,7 @@ import pickle
 import numpy as np
 
 # Load model
-with open("crop_yield_model.pkl", "rb") as f:
+with open("Crop_Yield_Project/crop_yield_model.pkl", "rb") as f:
     model = pickle.load(f)
 
 st.set_page_config(page_title="Crop Yield Prediction", page_icon="🌾")
@@ -26,3 +26,4 @@ if st.button("Predict Yield"):
     prediction = model.predict(input_data)[0]
     
     st.success(f"🌾 Predicted Crop Yield: {prediction:.2f} Q/acre")
+
