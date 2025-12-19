@@ -14,8 +14,12 @@ st.write("Predict student scores based on study hours using Linear Regression")
 # Load Dataset
 # -----------------------------
 @st.cache_data
+import pickle
+
+model = joblib.load("model.pkl")
+
 def load_data():
-    data = pd.read_csv("Student_score_prediction/stu_score.pkl")
+    data = pickle.load("Student_score_prediction/stu_score.pkl")
     return data
 
 df = load_data()
