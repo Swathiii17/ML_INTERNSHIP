@@ -17,7 +17,7 @@ st.write("Predict student scores based on study hours using Linear Regression")
 @st.cache_resource
 
 def load_data():
-    with open("stu_score.pkl", "rb") as file:
+    with open("Student_score_prediction/stu_score.pkl", "rb") as file:
         data = pickle.load(file)
     return data
 
