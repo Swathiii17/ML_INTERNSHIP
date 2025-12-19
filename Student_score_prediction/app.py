@@ -13,9 +13,11 @@ st.write("Predict student scores based on study hours using Linear Regression")
 # -----------------------------
 # Load Dataset
 # -----------------------------
-@st.cache_data
+@st.cache_resource
+import pickle
 def load_data():
-    data = pickle.load("Student_score_prediction/stu_score.pkl")
+    with open("stu_score.pkl", "rb") as file:
+        data = pickle.load(file)
     return data
 
 df = load_data()
