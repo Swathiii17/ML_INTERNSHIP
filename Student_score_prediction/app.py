@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import pickle
 from sklearn.linear_model import LinearRegression
 import matplotlib.pyplot as plt
 
@@ -14,7 +15,7 @@ st.write("Predict student scores based on study hours using Linear Regression")
 # Load Dataset
 # -----------------------------
 @st.cache_resource
-import pickle
+
 def load_data():
     with open("stu_score.pkl", "rb") as file:
         data = pickle.load(file)
