@@ -21,7 +21,7 @@ st.caption("Logistic Regression model for diabetes detection")
 # -----------------------------
 @st.cache_resource
 def load_model():
-    with open("diabetes_model.pkl", "rb") as file:
+    with open("Diabetes_detection/diabetes_model.pkl", "rb") as file:
         model = pickle.load(file)
     return model
 
