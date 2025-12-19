@@ -1,42 +1,22 @@
 import streamlit as st
-import pandas as pd
 import pickle
-from sklearn.linear_model import LinearRegression
-import matplotlib.pyplot as plt
+import numpy as np
 
 # -----------------------------
 # Title
 # -----------------------------
-st.title("📘 Student Score Prediction App")
+st.title("📘 Student Score Prediction (PKL Model)")
 
 # -----------------------------
-# Load Dataset
+# Load Pickle Model
 # -----------------------------
-@st.cache_data
-def load_data():
+@st.cache_resource
+def load_model():
     with open("Student_score_prediction/stu_score.pkl", "rb") as file:
-        data = pickle.load(file)
-    return data
+        model = pickle.load(file)
+    return model
 
-df = load_data()   # df is ONLY DataFrame
-
-# -----------------------------
-# Show Dataset
-# -----------------------------
-if st.checkbox("Show Dataset"):
-    st.dataframe(df)
-
-# -----------------------------
-# Prepare Data
-# -----------------------------
-X = df[["Hours"]]
-y = df["Scores"]
-
-# -----------------------------
-# Train Model
-# -----------------------------
-model = LinearRegression()   # model is ML model
-model.fit(X, y)
+model = load_model()
 
 # -----------------------------
 # User Input
@@ -52,16 +32,6 @@ hours = st.number_input(
 # Prediction
 # -----------------------------
 if st.button("Predict Score"):
-    prediction = model.predict([[hours]])
+    input_data = np.array([[hours]])
+    prediction = model.predict(input_data)
     st.success(f"Predicted Score: {prediction[0]:.2f}")
-
-# -----------------------------
-# Graph
-# -----------------------------
-fig, ax = plt.subplots()
-ax.scatter(X, y)
-ax.plot(X, model.predict(X))
-ax.set_xlabel("Hours Studied")
-ax.set_ylabel("Scores")
-
-st.pyplot(fig)
