@@ -4,6 +4,13 @@ import pickle
 import os
 
 # -----------------------------
+# Paths
+# -----------------------------
+output_dir = "/content/drive/MyDrive/extra_need/h5_pkl/disease_final/"
+dataset_path = "/content/drive/MyDrive/extra_need/Datas/disease_final/dataset.csv"
+
+# -----------------------------
+# -----------------------------
 # Load model, scaler, encoder
 # -----------------------------
 with open("DISEASE_PREDICTION_FINAL/disease_model.pkl", "rb") as f:
