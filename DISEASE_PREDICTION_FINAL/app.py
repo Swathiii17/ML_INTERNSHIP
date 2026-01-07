@@ -51,18 +51,22 @@ if st.button("Predict Disease"):
         st.warning("Select at least one symptom")
 
     else:
-        input_vector = pd.DataFrame(0, index=[0], columns=all_symptoms)
+       trained_symptoms = list(scaler.feature_names_in_)
 
-        for s in selected_symptoms:
-            if s in input_vector.columns:
-                input_vector.at[0, s] = 1
+       input_vector = pd.DataFrame(0, index=[0], columns=trained_symptoms)
 
-        input_scaled = scaler.transform(input_vector)
+       for s in selected_symptoms:
+          if s in trained_symptoms:
+             input_vector.at[0, s] = 1
 
-        pred_enc = model.predict(input_scaled)[0]
-        disease = le.inverse_transform([pred_enc])[0]
+       input_scaled = scaler.transform(input_vector)
 
-        st.success(f"Predicted Disease: {disease}")
+       pred_enc = model.predict(input_scaled)[0]
+       disease = le.inverse_transform([pred_enc])[0]
+
+       st.success(f"Predicted Disease: {disease}")
+
+       
 
         # -----------------------------
         # SHOW SEVERITY SCORE
