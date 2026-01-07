@@ -6,13 +6,13 @@ import os
 # -----------------------------
 # Load model, scaler, encoder
 # -----------------------------
-with open(os.path.join(output_dir, "DISEASE_PREDICTION_FINAL/disease_model.pkl"), "rb") as f:
+with open("DISEASE_PREDICTION_FINAL/disease_model.pkl", "rb") as f:
     model = pickle.load(f)
 
-with open(os.path.join(output_dir, "DISEASE_PREDICTION_FINAL/label_encoder.pkl"), "rb") as f:
+with open("DISEASE_PREDICTION_FINAL/label_encoder.pkl", "rb") as f:
     le = pickle.load(f)
 
-with open(os.path.join(output_dir, "DISEASE_PREDICTION_FINAL/scaler.pkl"), "rb") as f:
+with open("DISEASE_PREDICTION_FINAL/scaler.pkl", "rb") as f:
     scaler = pickle.load(f)
 
 # -----------------------------
